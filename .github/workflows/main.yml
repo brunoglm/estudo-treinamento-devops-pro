@@ -20,5 +20,5 @@ jobs:
       - name: "Script Python"
         run: |
           variavel = "Valor"
-          print(variabel)
+          print(variavel)
         shell: python
