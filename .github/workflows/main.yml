@@ -17,3 +17,8 @@ jobs:
         run: |
           echo "Execução do primeiro comando da segunda ação"
           echo "Execução do segundo comando da segunda ação"
+      - name: "Script Python"
+        run: |
+          variavel = "Valor"
+          print(variabel)
+        shell: python
