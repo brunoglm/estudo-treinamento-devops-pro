@@ -1,0 +1,19 @@
+name: primeira-pipeline
+on:
+  push:
+    # branches: ["main"]
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  primeiro-job:
+    name: "Primeiro Job"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Primeira ação"
+        run: echo "Execução da primeira ação !!!"
+      - name: "Segunda ação"
+        run: |
+          echo "Execução do primeiro comando da segunda ação"
+          echo "Execução do segundo comando da segunda ação"
