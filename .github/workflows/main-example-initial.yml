@@ -28,11 +28,13 @@ jobs:
   segundo-job:
     name: "Instalação do Ambiente NodeJS"
     runs-on: ubuntu-latest
+    needs: primeiro-job ## Nesse caso a execução será sequencial
     steps:
       - name: "Verificação da versão do NodeJS atual - antes setup"
         run: node --version
       - name: "Definição da versão 20.13.1 do NodeJS"
-        uses: actions/setup-node@v4
+        ## uses: actions/setup-node@v4.0.2 ## É possível pegar a versão exata também
+        uses: actions/setup-node@v4 ## Nesse caso vai ser pego a action mais recente da versão 4.x.x
         with:
           node-version: '20.13.1'
       - name: "Verificação da versão do NodeJS atual - depois setup"
