@@ -1,17 +1,20 @@
 name: primeira-pipeline
 on:
   push:
-    # branches: ["main"]
+    # branches: ["main", "segunda-branch"]
     branches:
       - main
-  workflow_dispatch:
+      # - segunda-branch
+  workflow_dispatch: ## Permite a execução da pipeline manualmente
 
 jobs:
   primeiro-job:
     name: "Primeiro Job"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest ## agente de execução / ambiente que vamos trabalhar
     steps:
       - name: "Primeira ação"
+        ## working-directory: app ## defini o diretório onde será executado os comandos abaixo
+        ## shell: ## Define o tipo de terminal onde será executado a instrução
         run: echo "Execução da primeira ação !!!"
       - name: "Segunda ação"
         run: |
@@ -22,3 +25,15 @@ jobs:
           variavel = "Valor"
           print(variavel)
         shell: python
+  segundo-job:
+    name: "Instalação do Ambiente NodeJS"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Verificação da versão do NodeJS atual - antes setup"
+        run: node --version
+      - name: "Definição da versão 20.13.1 do NodeJS"
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.13.1'
+      - name: "Verificação da versão do NodeJS atual - depois setup"
+        run: node --version
