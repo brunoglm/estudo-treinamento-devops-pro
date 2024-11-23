@@ -49,4 +49,4 @@ jobs:
           RUNNER_SECRETS: ${{ toJson(secrets) }}
         run: echo "$RUNNER_SECRETS"
       - name: Acessando secret direto
-        run: echo "${{ vars.SECRET_XPTO }}"
+        run: echo "${{ secrets.SECRET_XPTO }}"
