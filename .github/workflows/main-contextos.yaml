@@ -10,9 +10,13 @@ jobs:
     env:
         ENV_JOB: "Valor JOB CONTEXT"
     steps:
+      - name: Pegando ref
+        env:
+          GITHUB_CONTEXT_REF: ${{ github.ref }}
+        run: echo "$GITHUB_CONTEXT_REF"
       - name: Pegando SHA do commit
         env:
-          GITHUB_CONTEXT_SHA: ${{ toJson(github)['sha'] }}
+          GITHUB_CONTEXT_SHA: ${{ github.sha }}
         run: echo "$GITHUB_CONTEXT_SHA"
       - name: Contexto github
         env:
