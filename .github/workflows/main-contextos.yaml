@@ -10,10 +10,10 @@ jobs:
     env:
         ENV_JOB: "Valor JOB CONTEXT"
     steps:
-      - name: Contexto github pegando atributo
+      - name: Pegando SHA do commit
         env:
-          GITHUB_CONTEXT_ATRIBUTO1: ${{ toJson(github)['ref'] }}
-        run: echo "$GITHUB_CONTEXT_ATRIBUTO1"
+          GITHUB_CONTEXT_SHA: ${{ toJson(github)['sha'] }}
+        run: echo "$GITHUB_CONTEXT_SHA"
       - name: Contexto github
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
