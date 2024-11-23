@@ -15,7 +15,7 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
           echo "$GITHUB_CONTEXT"
-          echo "$GITHUB_CONTEXT['ref_name']"
+          echo Ref name: "$GITHUB_CONTEXT" | jq -r '.ref_name'
       - name: Contexto env
         env:
           ENV_CONTEXT: ${{ toJson(env) }}
