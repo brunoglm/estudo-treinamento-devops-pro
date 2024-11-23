@@ -44,3 +44,9 @@ jobs:
         run: echo "$RUNNER_VARS"
       - name: Acessando vars direto
         run: echo "${{ vars.VARS_XPTO }}"
+      - name: Contexto secrets
+        env:
+          RUNNER_SECRETS: ${{ toJson(secrets) }}
+        run: echo "$RUNNER_SECRETS"
+      - name: Acessando secret direto
+        run: echo "${{ vars.SECRET_XPTO }}"
