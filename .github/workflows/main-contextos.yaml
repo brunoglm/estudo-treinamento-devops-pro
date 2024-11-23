@@ -10,6 +10,10 @@ jobs:
     env:
         ENV_JOB: "Valor JOB CONTEXT"
     steps:
+      - name: Contexto github puro
+        env:
+          GITHUB_CONTEXT_PURO: ${{ github }}
+        run: echo "$GITHUB_CONTEXT_PURO"
       - name: Contexto github
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
